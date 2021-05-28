@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars!</title>
+  <!-- bootstrap stylesheet links -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">
+  </script>
+</head>
+
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars!</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape updated Data!</a></p>
+      <p> This will take a few minutes...</p>
+    </div>
+  </div>
+</body>
+
+<div class="container">
+      <div class="row top-buffer ">
+
+
+          <div class="container">
+            <div class="row top-buffer ">
+                <div class="col-md-12 ">
+                    <div class="card justify-content-center">
+                        <div class="card-body ">
+                            <h1 class="card-title " >Latest Mars News</h1>
+                            <h4 class="newsheading"> {{ mars_news_data.news_title_p.Title }} </h3> 
+                            <h7 class="card-text">{{ mars_news_data.news_title_p.Paragraph }}</p>           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <div class="container">
+          <!--left card-->
+              <div class="row top-buffer ">
+                  <div class="col-md-8 ">
+                      <div class="card justify-content-center">
+                          <div class="card-body ">
+                              <h1 class="card-title " >Featured Mars Image!</h1>
+                              <p class="card-text">
+                                <a href='{{ mars_news_data.featured_image_url }}'><img src='{{ mars_news_data.featured_image_url }}' }} cl
+                                  <!--right card-->
+                                  <div class="col-md-4 ">
+                                      <div class="card">
+                                          <div class="card-body ">
+                                              <h1 class="card-title padding">Mars Facts</h1>
+                                                <div class="table table-responsive table-striped">
+                                                <!--https://stackoverflow.com/questions/44666837/flask-producing-html-table-as-a-string-not-a-table-python-2-->                       
+                                                <table border="1" class="dataframe">
+                                                  <thead>
+                                                    <tr style="text-align: right;">
+                                                      <th>Description</th>
+                                                      <th>Fact</th>
+                                                    </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                    <tr>
+                                                      <td>Equatorial Diameter:</td>
+                                                      <td>6,792 km</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>Polar Diameter:</td>
+                                                      <td>6,752 km</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>Mass:</td>
+                                                      <td>6.39 × 10^23 kg (0.11 Earths)</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>Moons:</td>
+                                                      <td>2 (Phobos &amp; Deimos)</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>Orbit Distance:</td>
+                                                      <td>227,943,824 km (1.38 AU)</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>Orbit Period:</td>
+                                                      <td>687 days (1.9 years)</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>Surface Temperature:</td>
+                                                      <td>-87 to -5 °C</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>First Record:</td>
+                                                      <td>2nd millennium BC</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>Recorded By:</td>
+                                                      <td>Egyptian astronomers</td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table> 
+                                                </div>                       
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="container">
+                            <div class="row top-buffer ">
+                                <div class="col-md-12 ">
+                                    <div class="card justify-content-center">
+                                        <div class="card-body ">
+                                            <h1 class="card-title center" >Mars Hemispheres</h1>
+                        
+                                            {% for hemi in mars_news_data.hemisphere_image_urls %}
+                                            <div class="col-md-5" >
+                                              <div class="card">
+                                                <h1 class="card-title">{{ hemi['title'] }}</h1>
+                                                <a href= "{{ hemi['img_url'] }}"><img src="{{ hemi['img_url'] }}" class="img-fluid"> </a>
+           
+                           -->
+                          </div>
+                        </div>
+                      </div>
+                      {% endfor %}
+  
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+  
+  
+  </html>
+                                                                                                                 
